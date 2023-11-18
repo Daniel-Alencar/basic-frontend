@@ -14,9 +14,6 @@ export const AuthProvider = ({ children }) => {
 
   const loginUser = async (e) => {
     e.preventDefault();
-    console.log('Form submitted');
-    console.log('username:', e.target.username.value);
-    console.log('password:', e.target.password.value);
 
     let response = await fetch('http://localhost:8000/auth/token/', {
       method: 'POST',
