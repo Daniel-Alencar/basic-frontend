@@ -15,8 +15,8 @@ function App() {
         <Header />
 
         <Switch>
-          <Route path="/" Component={HomePage} />
-          <Route path="/login" Component={LoginPage} />
+          <Route path="/home" Component={HomePage} />
+          <Route path="/" Component={LoginPage} />
         </Switch>
 
       </BrowserRouter>

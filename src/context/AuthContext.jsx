@@ -1,5 +1,6 @@
 import { createContext, useState, useEffect } from 'react';
-import {jwtDecode} from 'jwt-decode';
+
+import { jwtDecode } from 'jwt-decode';
 
 const AuthContext = createContext();
 
@@ -15,7 +16,7 @@ export const AuthProvider = ({ children }) => {
   const loginUser = async (e) => {
     e.preventDefault();
 
-    let response = await fetch('http://localhost:8000/auth/token/', {
+    let response = await fetch('http://localhost:8000/api/token/', {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',
@@ -28,13 +29,17 @@ export const AuthProvider = ({ children }) => {
 
     let data = await response.json();
     if(response.status == 200) {
+
       setAuthTokens(data);
       setUser(jwtDecode(data.access));
+      console.log('data.access', jwtDecode(data.access));
+
+      alert('Você está logado! Acesse a página Home');
+
     } else {
       alert('Nome de usuário ou senha incorretas!');
     }
 
-    console.log('data.access', jwtDecode(data.access));
   }
 
 

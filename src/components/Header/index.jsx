@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 const Header = () => {
   return(
     <div>
-      <Link to={'/'}>Home</Link>
+      <Link to={'/home'}>Home</Link>
       <span> | </span>
-      <Link to={'/login'}>Login</Link>
+      <Link to={'/'}>Login</Link>
     </div>
   )
 }
